@@ -72,8 +72,14 @@ write.table(tidy.data, "tidy.txt", row.name=FALSE)
 # for each activity and each subject
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-# get colMeans by activity and subject
+# need plyr library for processing
+if(!is.element("plyr", installed.packages()[,1])){
+    print("Installing packages")
+    install.packages("plyr")
+}
 library(plyr)
+
+# get colMeans by activity and subject
 tidy.means <- ddply(tidy.data, .(Subject, Activity), function(x) colMeans(x[, 3:68]))
 
 # write final output of averages to tidyMeans.txt
