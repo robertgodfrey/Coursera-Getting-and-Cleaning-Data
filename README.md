@@ -20,16 +20,16 @@ Step 1.Merges the training and the test sets to create one data set.
 
 Step 2.Extracts only the measurements on the mean and standard deviation for each measurement. 
   * use regular expression to extract columns with mean or std in name
-  * clean column names as follows:
-   + remove non-alphanumeric characters
-   + capitalize mean and std within column names
-   + alter column prefix per features_info.txt
 
 Step 3.Uses descriptive activity names to name the activities in the data set.
   * extract descriptive names from activity_labels.txt
 
 Step 4.Appropriately labels the data set with descriptive variable names.
   * finalize column labeling with subject dataset
+  * clean column names as follows:
+   + remove non-alphanumeric characters
+   + capitalize mean and std within column names
+   + alter column prefix per features_info.txt
   * merge data, activties, and subject data into a tidy dataset with descriptive column names
 
 Step 5.From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject.
