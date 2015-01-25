@@ -12,7 +12,7 @@ https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Datas
 
 *Note: Script assumes data from link above has been unzipped and resides in the working directory for R*
 
-###Analysis Steps and variable descriptions
+###Analysis Steps and Variable Descriptions
 
 **Step 1.Merges the training and the test sets to create one data set.**
 
