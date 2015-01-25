@@ -15,7 +15,7 @@ https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Datas
 #Analysis Steps
 Step 1.Merges the training and the test sets to create one data set.
   + read test data, labels, and subjects into memory
-  + read test data, labels, and subjects into memory
+  + read training data, labels, and subjects into memory
   + merge test and training datasets into merged datasets
 
 Step 2.Extracts only the measurements on the mean and standard deviation for each measurement. 
