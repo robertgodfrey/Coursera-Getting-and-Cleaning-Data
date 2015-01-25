@@ -4,12 +4,12 @@
 # Step 1. Merge the training and test sets to create one data set
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-# read training data, labels, and subjects into variables
+# read training data, activities, and subjects into variables
 train.data <- read.table("train/X_train.txt")  # 7352 observations of 561 variables
 train.activity <- read.table("train/y_train.txt")
 train.subject <- read.table("train/subject_train.txt")
 
-# read test data, labels, and subjects into variables
+# read test data, activities, and subjects into variables
 test.data <- read.table("test/X_test.txt")  # 2947 observations of 561 variables
 test.activity <- read.table("test/y_test.txt")
 test.subject <- read.table("test/subject_test.txt")
@@ -39,7 +39,7 @@ merged.data <- merged.data[, features.mean.std] # 10299 observations of 66 varia
 # read descriptive activity labels
 activities <- read.table("activity_labels.txt")
 
-# update merged.labels with descriptive activity names
+# update merged.activities with descriptive activity names
 merged.activities[, 1] <- activities[merged.activities[, 1], 2]
 
 # correct column names
