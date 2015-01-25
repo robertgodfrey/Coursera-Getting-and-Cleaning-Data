@@ -13,7 +13,9 @@ https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Datas
 *Note: Script assumes data from link above has been unzipped and resides in the working directory for R*
 
 ###Analysis Steps and variable descriptions
-Step 1.Merges the training and the test sets to create one data set.
+
+**Step 1.Merges the training and the test sets to create one data set.**
+
   * read train data, activities, and subjects into memory
   
   `train.data read from X_train.txt, contains 7352 observations of 561 variables`
@@ -38,21 +40,42 @@ Step 1.Merges the training and the test sets to create one data set.
   
   `merged.subjects combines train.subject and test.subject`
   
-Step 2.Extracts only the measurements on the mean and standard deviation for each measurement. 
+**Step 2.Extracts only the measurements on the mean and standard deviation for each measurement.** 
+
   * use regular expression to extract columns with mean or std in name
+  
+  `grep("mean\\(\\)|std\\(\\)", features[, 2])`
 
-Step 3.Uses descriptive activity names to name the activities in the data set.
+  `merged.data then subsetted with extracted columns to 10299 observations of 66 variables`
+
+**Step 3.Uses descriptive activity names to name the activities in the data set.**
+
   * extract descriptive names from activity_labels.txt
+  
+  `activities dataset is created by reading activity_labels.txt`
 
-Step 4.Appropriately labels the data set with descriptive variable names.
+**Step 4.Appropriately labels the data set with descriptive variable names.**
+
   * finalize column labeling with subject dataset
-  * clean column names as follows:
+  
+  * clean column names of merged.dataset as follows:
    + remove non-alphanumeric characters
    + capitalize mean and std within column names
    + alter column prefix per features_info.txt
+   
+   `gsub("^t", "Time", names(merged.data)) # t prefix to Time`
+   `gsub("^f", "Freq", names(merged.data)) # f prefix to Freq`
+   `gsub("mean", "Mean", names(merged.data)) # capitalize M`
+   `gsub("std", "Std", names(merged.data)) # capitalize S`
+   `gsub("\\(\\)", "", names(merged.data)) # remove "()"`
+   `gsub("-", "", names(merged.data)) # remove "-" in column names`
+
   * merge data, activties, and subject data into a tidy dataset with descriptive column names
 
-Step 5.From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject.
-  * script produces outputs:
-   + tidy.txt
-   + tidyMeans.txt
+**Step 5.From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject.**
+
+  * script produces outputs below in the working directory using the `write.table()` command:
+  
+   + `tidy.txt` - dataset of subjects, activities and observations with descriptive column names
+   
+   + `tidyMeans.txt` - subset of tidy.txt that contains the averages of the measurements by subject and activity
