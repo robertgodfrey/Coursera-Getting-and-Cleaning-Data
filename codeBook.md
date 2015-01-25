@@ -15,20 +15,23 @@ https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Datas
 ###Analysis Steps and variable descriptions
 Step 1.Merges the training and the test sets to create one data set.
   * read train data, activities, and subjects into memory
+  
   `train.data read from X_train.txt, contains 7352 observations of 561 variables`
 
   `train.activity read from y_train.txt`
   
-  `train.subject read from subject_train`
+  `train.subject read from subject_train.txt`
   
   * read test data, activities, and subjects into memory
-  `test.data read from X_train.txt, contains 2947 observations of 561 variables`
-
-  `test.activity read from y_train.txt`
   
-  `test.subject read from subject_train`
+  `test.data read from X_test.txt, contains 2947 observations of 561 variables`
+
+  `test.activity read from y_test.txt`
+  
+  `test.subject read from subject_test.txt`
   
   * merge test and training datasets
+  
   `merged.data - combined dataset which contains train.data and test.data for 10299 observations of 561 variables`
 
   `merged.activities combines the datasets train.activity and test.activity`
