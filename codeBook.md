@@ -64,12 +64,17 @@ https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Datas
    + alter column prefix per features_info.txt
    
    `gsub("^t", "Time", names(merged.data)) # t prefix to Time`
-   `gsub("^f", "Freq", names(merged.data)) # f prefix to Freq`
-   `gsub("mean", "Mean", names(merged.data)) # capitalize M`
-   `gsub("std", "Std", names(merged.data)) # capitalize S`
-   `gsub("\\(\\)", "", names(merged.data)) # remove "()"`
-   `gsub("-", "", names(merged.data)) # remove "-" in column names`
 
+   `gsub("^f", "Freq", names(merged.data)) # f prefix to Freq`
+   
+   `gsub("mean", "Mean", names(merged.data)) # capitalize M`
+   
+   `gsub("std", "Std", names(merged.data)) # capitalize S`
+   
+   `gsub("\\(\\)", "", names(merged.data)) # remove "()"`
+   
+   `gsub("-", "", names(merged.data)) # remove "-" in column names`
+   
   * merge data, activties, and subject data into a tidy dataset with descriptive column names
 
 **Step 5.From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject.**
